@@ -1,0 +1,23 @@
+name: Test dry-run with branch filters
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Run cleanup action with branch filters in dry-run mode
+        id: action
+        uses: .
+        with:
+          token: ${{ github.token }}
+          repository: actions/checkout
+          dry-run: 'true'
+          last-commit-age-days: '90'
+          ignore-branches: 'main,master,develop'
+          allowed-prefixes: 'feature/,fix/,chore/'
+          ignored-prefixes: 'release/,hotfix/'
+      - name: Assert action completed successfully
+        run: |
+          echo "Action completed with branch filters without error"
+          echo "PASS"
