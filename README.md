@@ -12,6 +12,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | v1.2.6 | [`v1.2.6`](https://github.com/chainguard-actions/cbrgm-cleanup-stale-branches-action/tree/v1.2.6) | [`03d7ac5`](https://github.com/cbrgm/cleanup-stale-branches-action/commit/03d7ac58f2dcc41cf3c6943f59da8b8d00c8325f) |
 | v1.2.7 | [`v1.2.7`](https://github.com/chainguard-actions/cbrgm-cleanup-stale-branches-action/tree/v1.2.7) | [`c6bf15e`](https://github.com/cbrgm/cleanup-stale-branches-action/commit/c6bf15e293f579173a40a90f063c5133461784d0) |
 | v1.2.8 | [`v1.2.8`](https://github.com/chainguard-actions/cbrgm-cleanup-stale-branches-action/tree/v1.2.8) | [`2419800`](https://github.com/cbrgm/cleanup-stale-branches-action/commit/2419800d1439198aaf3c6842ff5015a94974a6c4) |
+| v1.2.9 | [`v1.2.9`](https://github.com/chainguard-actions/cbrgm-cleanup-stale-branches-action/tree/v1.2.9) | [`614e7e9`](https://github.com/cbrgm/cleanup-stale-branches-action/commit/614e7e9d1fdfa9fee9662c67aa8ef7cf7960472d) |
 
 ## Privacy
 
