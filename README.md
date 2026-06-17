@@ -1,0 +1,1 @@
+# cbrgm-cleanup-stale-branches-action
