@@ -1,0 +1,64 @@
+name: 'Cleanup Stale Branches Action'
+description: 'Automatically delete abandoned / stale branches from a GitHub repository'
+author: 'cbrgm'
+
+inputs:
+  token:
+    description: 'GitHub token for authentication'
+    required: true
+  repository:
+    description: 'The target GitHub repository in the format "owner/repo"'
+    required: true
+  ignore-branches:
+    description: 'Comma-separated list of branches to ignore'
+    required: false
+    default: ""
+  allowed-prefixes:
+    description: 'Comma-separated list of prefixes a branch must match to be deleted'
+    required: false
+    default: ""
+  ignored-prefixes:
+    description: 'Comma-separated list of prefixes a branch must NOT match to be deleted'
+    required: false
+    default: ""
+  last-commit-age-days:
+    description: 'Number of days since the last commit for a branch to be considered abandoned'
+    required: false
+    default: '30'
+  dry-run:
+    description: 'Perform a dry run without actually deleting branches'
+    required: false
+    default: 'true'
+  rate-limit:
+    description: 'Stop the action if it exceeds 95% of the GitHub API rate limit'
+    required: false
+    default: 'true'
+  github-enterprise-url:
+    description: 'The base URL for GitHub Enterprise (if applicable)'
+    required: false
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/cbrgm/cleanup-stale-branches-action@sha256:3fea970bbbd86003acc0d56af312572ee398515332f62aeab7dd06c04cffbdc3' # v1
+  args:
+    - --github-token
+    - ${{ inputs.token }}
+    - --github-repo
+    - ${{ inputs.repository }}
+    - --ignore-branches
+    - ${{ inputs.ignore-branches }}
+    - --allowed-prefixes
+    - ${{ inputs.allowed-prefixes }}
+    - --ignored-prefixes
+    - ${{ inputs.ignored-prefixes }}
+    - --last-commit-age-days=${{ inputs.last-commit-age-days }}
+    - --dry-run=${{ inputs.dry-run }}
+    - --rate-limit=${{ inputs.rate-limit }}
+    - --github-enterprise-url
+    - ${{ inputs.github-enterprise-url }}
+
+branding:
+  icon: 'git-pull-request'
+  color: 'red'
+
