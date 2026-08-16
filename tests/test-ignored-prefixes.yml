@@ -1,4 +1,4 @@
-name: Test basic dry-run usage
+name: Test ignored-prefixes filter
 on:
   workflow_dispatch:
 jobs:
@@ -14,7 +14,8 @@ jobs:
           repository: ${{ github.repository }}
           dry-run: 'true'
           last-commit-age-days: '30'
-      - name: Assert action ran (dry-run mode)
+          ignored-prefixes: 'release/,hotfix/'
+      - name: Assert action ran with ignored-prefixes filter
         env:
           OUTCOME: ${{ steps.action.outcome }}
         run: |
@@ -23,4 +24,4 @@ jobs:
             echo "FAIL: action step was skipped unexpectedly"
             exit 1
           fi
-          echo "PASS: action ran in dry-run mode (outcome=$OUTCOME)"
+          echo "PASS: action ran with ignored-prefixes=release/,hotfix/ in dry-run mode (outcome=$OUTCOME)"

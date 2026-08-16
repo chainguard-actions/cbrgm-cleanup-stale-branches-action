@@ -40,7 +40,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/cbrgm/cleanup-stale-branches-action@sha256:f6ab8ed5a2ca53b8978f38a1b0aac6f0056926d2ed1c089ddd699bd9724593a3' # v1
+  image: 'docker://ghcr.io/cbrgm/cleanup-stale-branches-action:v1@sha256:3fea970bbbd86003acc0d56af312572ee398515332f62aeab7dd06c04cffbdc3'
   args:
     - --github-token
     - ${{ inputs.token }}

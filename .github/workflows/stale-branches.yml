@@ -1,0 +1,20 @@
+name: Cleanup Stale Branches
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # This schedule runs the workflow at midnight every day
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup-stale-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cleanup Stale Branches
+        uses: cbrgm/cleanup-stale-branches-action@1cd2068354f38284bb05b8ba279ae30790d68c44 # main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          dry-run: false

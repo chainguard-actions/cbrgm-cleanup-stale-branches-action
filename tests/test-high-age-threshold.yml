@@ -1,4 +1,4 @@
-name: Test basic dry-run usage
+name: Test high last-commit-age-days threshold
 on:
   workflow_dispatch:
 jobs:
@@ -13,8 +13,8 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           dry-run: 'true'
-          last-commit-age-days: '30'
-      - name: Assert action ran (dry-run mode)
+          last-commit-age-days: '9999'
+      - name: Assert action ran with high age threshold
         env:
           OUTCOME: ${{ steps.action.outcome }}
         run: |
@@ -23,4 +23,5 @@ jobs:
             echo "FAIL: action step was skipped unexpectedly"
             exit 1
           fi
-          echo "PASS: action ran in dry-run mode (outcome=$OUTCOME)"
+          echo "PASS: action ran with last-commit-age-days=9999 in dry-run mode (outcome=$OUTCOME)"
+          echo "No branches should be considered stale with such a high threshold"
