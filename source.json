@@ -1,6 +1,11 @@
 {
   "owner": "cbrgm",
   "repo": "cleanup-stale-branches-action",
-  "version": "",
-  "url": "https://github.com/cbrgm/cleanup-stale-branches-action"
+  "version": "v1.2.13",
+  "commit_sha": "c932d1f1b7e7506224d8a5bd8dd5d123295f6682",
+  "url": "https://github.com/cbrgm/cleanup-stale-branches-action",
+  "policy_sha": "d636be7e43ef829af6e853da6b3c7566db9f72fe",
+  "test_policy_sha": "843adf9e4b8f85d0c08b27b9d0b09dd094b54702",
+  "test_agent_version": "2",
+  "harden_agent_version": "2"
 }
